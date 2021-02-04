@@ -131,6 +131,8 @@ def calculates_results_stats(results_dic):
     
     results_stats_dic["pct_match"]=pct_match
     
+    results_stats_dic["n_correct_notdogs"]=n_correct_notdogs
+    
     # Replace None with the results_stats_dic dictionary that you created with 
     # this function 
     return results_stats_dic
