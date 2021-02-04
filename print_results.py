@@ -69,7 +69,18 @@ def print_results(results_dic, results_stats_dic, model,
     
     print('N Not-Dog Images',results_stats_dic["n_notdogs_img"])
     
-    print(" ")
+    print('Summary Statistics (percentages) on Model Run')
+    
+    for key, value in results_stats_dic.items():
+        if key[0] == 'p':
+            print("{}: {}".format(key, value))
+            
+    if (print_incorrect_dogs and ( (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs']) != results_stats_dic['n_images'] ) ):
+        print("\nINCORRECT Dog/NOT Dog Assignments:")
+        
+        for key in results_dic:
+            if results_dic[key][3] == 1 and results_dic[key][4] == 0 or results_dic[key][3] == 0 and results_dic[key][4] == 1:
+                print(results_dic[key][0], results_dic[key][1])
     
     if (print_incorrect_breed and (results_stats_dic["n_correct_dogs"] != results_stats_dic["n_correct_breed"])):
         print("\nINCORRECT Dog Breed Assignment:")
