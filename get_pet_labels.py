@@ -45,7 +45,7 @@ def get_pet_labels(image_dir):
     
     results_dic={}
     for i in range(0,len(fl)):
-        if fl[0]!= ".":
+        if fl[i][0]!= ".":
             ###Pet label
             pet_image=fl[i]
             low_pet_image = pet_image.lower()
